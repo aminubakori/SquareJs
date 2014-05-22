@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	    <meta name="product" content="squareJs Javascript Framework">
+	    <meta name="description" content="SquareJs is a little javascript framework that includes features like OOP, functional programming (each, map,...), event (including touch), animations and lots more.">
+	    <meta name="author" content="Friendstie Nigeria">
+	    <meta name="keywords" content="js, js framework, squareJs, oop, functional js, dom">
+		<link href="assests/css/metro-bootstrap.css" rel="stylesheet">
+	    <link href="assests/css/metro-bootstrap-responsive.css" rel="stylesheet">
+	    <link href="assests/js/prettify/prettify.css" rel="stylesheet">
+
+	    <!-- Load JavaScript Libraries -->
+	    <script src="assests/js/jquery/jquery.min.js"></script>
+	    <script src="assests/js/jquery/jquery.widget.min.js"></script>
+	    <script src="assests/js/jquery/jquery.mousewheel.js"></script>
+	    <script src="assests/js/prettify/prettify.js"></script>
+
+	    <!-- Metro UI CSS JavaScript plugins -->
+	    <script src="assests/js/load-metro.js"></script>
+
+	    <link rel='shortcut icon' href='assests/images/squarejs.png'>
+
+		<!-- squareJs -->
+		<link href="assests/css/squarejs.css" rel="stylesheet">
+	    <script src="build/squareJs.js"></script>
+
+		<title>Documentation | SquareJS</title>
+	</head>
+
+	<body class="metro" onload="prettyPrint()">
+		<div class="navigation-bar dark green">
+		    <div class="navigation-bar-content container green">
+		        <a href="index.html" class="element"><img src="assests/images/squarejs-white.png" width="16px"/> SquareJS <sup>0.1</sup></a>
+		        <span class="element-divider"></span>
+
+		        <a class="element1 pull-menu" href="#"></a>
+		        <ul class="element-menu">
+		            <li>
+		                <a href="index.html">Home</a>
+		            </li>
+		            <li>
+		                <a class="dropdown-toggle" href="documentation.html">Documentation</a>
+                        <ul class="dropdown-menu" data-role="dropdown">
+                            <li><a href="oo.html">Square OOP</a></li>
+                            <li><a href="enumerable.html">Square Enumerable</a></li>
+                            <li><a href="dom.html">Square Dom</a></li>
+                            <li><a href="events.html">Square Events</a></li>
+                            <li><a href="touch.html">Square Touch</a></li>
+                        </ul>
+		            </li>
+		            <li>
+		                <a href="playground.html">Play Ground</a>
+		            </li>
+		        </ul>
+
+		        <div>
+		            <a href="assests/zips/squareJs-0-1.zip" class="element place-right"><span class="icon-file-zip"></span> Download Zip</a>
+		        </div>
+		    </div>
+		</div>
+
+        <div class="container">
+            <h1>Documentation <small>v0.0.1</small></h1>
+            <h2>SquareJs Dom</h2>
+<h3>Dom Css</h3>
+<p>
+    Gets or sets style values.
+    <ul>
+        <li>param: Object element A DOM element</li>
+        <li>returns: Object The style value</li>
+    </ul>
+</p>
+<p>Example</p>
+<pre class="prettyprint linenums" style="margin-top: 10px;">
+squareJs.dom.css($square('#element')[0], {
+    'padding': '5px', //gives a margin of 5px
+    'background': '#000000' //set a black background color for element
+});   
+</pre>
+<h3>Dom Get</h3>
+<p>
+    Finds DOM elements based on a CSS selector.
+    <ul>
+        <li>param: String selector A CSS selector</li>
+        <li>returns: Array The elements</li>
+    </ul>
+</p>
+<p>Example</p>
+<pre class="prettyprint linenums" style="margin-top: 10px;">
+squareJs.dom.get($square('#element'));   
+</pre>
+<h3>Dom FindElement</h3>
+<p>
+    Does an element satify a selector, based on root element?
+    <ul>
+        <li>param: Object element A DOM element</li>
+        <li>param: String selector A CSS selector</li>
+        <li>param: Object root The root DOM element</li>
+        <li>returns: Object The matching DOM element</li>
+    </ul>
+</p>
+<p>Example</p>
+<pre class="prettyprint linenums" style="margin-top: 10px;">
+squareJs.dom.findElement($square('#element'), 'class', $square('body'));   
+</pre>
+        </div>
+
+        <div class="container tertiary-text bg-dark fg-white" style="padding: 10px; min-width: 100%">
+            2014, SquareJs &copy; by  <a href="mailto:aminuibakori@live.com" class="fg-yellow">the folks at Friendstie.</a> Proudly powered by <a href="http://www.friendstie.com">Friendstie</a>.
+        </div>
+	</body>
+</html>
