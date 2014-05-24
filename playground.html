@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	    <meta name="product" content="squareJs Javascript Framework">
+	    <meta name="description" content="SquareJs is a little javascript framework that includes features like OOP, functional programming (each, map,...), event (including touch), animations and lots more.">
+	    <meta name="author" content="Friendstie Nigeria">
+	    <meta name="keywords" content="js, js framework, squareJs, oop, functional js, dom">
+		<link href="assests/css/metro-bootstrap.css" rel="stylesheet">
+	    <link href="assests/css/metro-bootstrap-responsive.css" rel="stylesheet">
+	    <link href="assests/js/prettify/prettify.css" rel="stylesheet">
+
+	    <!-- Load JavaScript Libraries -->
+	    <script src="assests/js/jquery/jquery.min.js"></script>
+	    <script src="assests/js/jquery/jquery.widget.min.js"></script>
+	    <script src="assests/js/jquery/jquery.mousewheel.js"></script>
+	    <script src="assests/js/prettify/prettify.js"></script>
+
+	    <!-- Metro UI CSS JavaScript plugins -->
+	    <script src="assests/js/load-metro.js"></script>
+
+	    <link rel='shortcut icon' href='assests/images/squarejs.png'>
+
+		<!-- squareJs -->
+		<link href="assests/css/squarejs.css" rel="stylesheet">
+	    <script src="build/squareJs.js"></script>
+    	<script>
+	        Student = squareJs.Class({
+	            initialize: function (name, course, level) {
+	                this.name = name;
+	                this.course = course;
+	                this.level = level;
+	            },
+
+	            toString: function () {
+	                return "My name is "+ this.name +" i'm in "+ this.level +" level studying "+ this.course;
+	            }
+	        });
+
+	        AbuStudent = squareJs.Class(Student,{
+	            initialize: function () {
+	                this.$super('initialize', arguments);
+	                this.school = "Ahmadu Bello University";
+	            },
+
+	            toString: function () {
+	                return this.$super('toString')+ ". I study at " + this.school;
+	            }
+	        });
+
+	        var students = [];
+	        students[1] = new AbuStudent("Aminu Bakori", "Statistics", "300");
+	        students[2] = new AbuStudent("Abdurrahman Shehu", "Statistics", "300");
+	        students[3] = new AbuStudent("Abdulbasit", "Computer Science", "300");
+	        students[4] = new Student("Aliyu", "Diploma Computer Science", "DIP 1");
+
+	        squareJs.events.ready(function () {
+	            for (var i = 1; i <= 4; i++)
+	                $square('div#students').append("<p>" + students[i].toString() + "</p>");
+	            squareJs.enumerable.each(students, function (n) {
+	                $square('div#students_2').append("<p>"+ n.toString() + "</p>");
+	            });
+	            squareJs.dom.css($square('div#students')[0], {
+	                'background': '#00a300',
+	                'padding': '15px',
+	                'color': '#fff',
+	                'border': '1px solid #00a300',
+	                'borderRadius': '10px'
+	            });
+
+	            squareJs.events.add($square('#doMaths')[0], 'click', function () {
+	                var num1 = $square('#number1').val();
+	                var num2 = $square('#number2').val();
+	                if (num1 !== '' && num2 !== '') {
+	                    $square('div#mathResult').html(parseInt(num1) + parseInt(num2));
+	                } else {
+	                    $square('#errorLog').fadeIn(2000).fadeOut(1000).html("<p>Input both numbers</p>");
+	                    $square('#errorLog').highlight();
+	                    squareJs.dom.css($square('#errorLog')[0], {
+	                        'padding': '5px'
+	                    });
+	                }
+	                
+
+	                var sum = squareJs.plugins.registered.Maths.sum(3, 4);
+	            });
+
+	            squareJs.touch.register();
+	            squareJs.events.add($square('#tapBox')[0], 'tap', function (e) {
+	                alert("tapped");
+	                console.log("tapped");
+	            });
+
+	            squareJs.events.add($square('#jsonBtn')[0], 'click', function () {
+	                squareJs.net.jsonp('http://localhost/Friendstie/api/FtApps-v1/userpersonaldata.php?api_key=9e2ff986c06e2632aeee3e59bc37cd3d&account_id=1&formart=jsonp&callback={callback}', {
+	                    success: function (json) {
+	                        console.log(json);
+	                        $square('#jsonResult').html("<h1>Welcome "+json.body.fname+" "+json.body.sname+" "+json.body.lname+"</h1>");
+	                    }
+	                });
+	            });
+	            console.log(squareJs.dom.get($square('#students')));
+	        });   
+	    </script>
+		<title>OO Square | SquareJS</title>
+	</head>
+
+	<body class="metro" onload="prettyPrint()">
+		<div class="navigation-bar dark green">
+		    <div class="navigation-bar-content container green">
+		        <a href="index.html" class="element"><img src="assests/images/squarejs-white.png" width="16px"/> SquareJS <sup>0.1</sup></a>
+		        <span class="element-divider"></span>
+
+		        <a class="element1 pull-menu" href="#"></a>
+		        <ul class="element-menu">
+		            <li>
+		                <a href="index.html">Home</a>
+		            </li>
+		            <li>
+		                <a class="dropdown-toggle" href="documentation.html">Documentation</a>
+                        <ul class="dropdown-menu" data-role="dropdown">
+                            <li><a href="oo.html">Square OOP</a></li>
+                            <li><a href="enumerable.html">Square Enumerable</a></li>
+                            <li><a href="dom.html">Square Dom</a></li>
+                            <li><a href="events.html">Square Events</a></li>
+                            <li><a href="touch.html">Square Touch</a></li>
+                        </ul>
+		            </li>
+		            <li>
+		                <a href="playground.html">Play Ground</a>
+		            </li>
+		        </ul>
+
+		        <div>
+		            <a href="assests/zips/squareJs-0-1.zip" class="element place-right"><span class="icon-file-zip"></span> Download Zip</a>
+		        </div>
+		    </div>
+		</div>
+
+        <div class="container">
+            <h3>Playground <small>v0.0.1</small></h3>
+            <p>Use the console or Developer Scratchpad{Firefox Only}</p>
+
+            <h1 id="jsloop">Js For Loop</h1>
+		    <div id="students"></div>
+		    <hr/>
+
+		    <h3>SquareJs Enumurable Each Loop</h3>
+		    <div id="students_2"></div>
+		    <h1>Maths Forms Test</h1>
+		    <form id="maths">
+		        <div id="errorLog"></div>
+		        Num1: <input type="number" id="number1" />
+		        Num2: <input type="number" id="number2" />
+		        <button type="button" id="doMaths">Do Maths</button>
+		        <div id="mathResult"></div>
+		    </form>
+
+		    <h3>SquareJs Touch Events</h3>
+		    <div id="tapBox" style="background: #000; width: 200px; height: 200px; color: #fff">Tap on me :)</div>
+		    <button id="jsonBtn">Get Json Data</button>
+		    <div id="jsonResult"></div>
+        </div>
+
+        <div class="container tertiary-text bg-dark fg-white" style="padding: 10px; min-width: 100%">
+            2014, SquareJs &copy; by  <a href="mailto:aminuibakori@live.com" class="fg-yellow">the folks at Friendstie.</a> Proudly powered by <a href="http://www.friendstie.com">Friendstie</a>.
+        </div>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	    <meta name="product" content="squareJs Javascript Framework">
+	    <meta name="description" content="SquareJs is a little javascript framework that includes features like OOP, functional programming (each, map,...), event (including touch), animations and lots more.">
+	    <meta name="author" content="Friendstie Nigeria">
+	    <meta name="keywords" content="js, js framework, squareJs, oop, functional js, dom">
+		<link href="assests/css/metro-bootstrap.css" rel="stylesheet">
+	    <link href="assests/css/metro-bootstrap-responsive.css" rel="stylesheet">
+	    <link href="assests/js/prettify/prettify.css" rel="stylesheet">
+
+	    <!-- Load JavaScript Libraries -->
+	    <script src="assests/js/jquery/jquery.min.js"></script>
+	    <script src="assests/js/jquery/jquery.widget.min.js"></script>
+	    <script src="assests/js/jquery/jquery.mousewheel.js"></script>
+	    <script src="assests/js/prettify/prettify.js"></script>
+
+	    <!-- Metro UI CSS JavaScript plugins -->
+	    <script src="assests/js/load-metro.js"></script>
+
+	    <link rel='shortcut icon' href='assests/images/squarejs.png'>
+
+		<!-- squareJs -->
+		<link href="assests/css/squarejs.css" rel="stylesheet">
+	    <script src="build/squareJs.js"></script>
+
+		<title>SquareJS</title>
+	</head>
+
+	<body class="metro" onload="prettyPrint()">
+		<div class="navigation-bar dark green">
+		    <div class="navigation-bar-content container green">
+		        <a href="index.html" class="element"><img src="assests/images/squarejs-white.png" width="16px"/> SquareJS <sup>0.1</sup></a>
+		        <span class="element-divider"></span>
+
+		        <a class="element1 pull-menu" href="#"></a>
+		        <ul class="element-menu">
+		            <li>
+		                <a href="index.html">Home</a>
+		            </li>
+		            <li>
+		                <a class="dropdown-toggle" href="documentation.html">Documentation</a>
+                        <ul class="dropdown-menu" data-role="dropdown">
+                            <li><a href="oo.html">Square OOP</a></li>
+                            <li><a href="enumerable.html">Square Enumerable</a></li>
+                            <li><a href="dom.html">Square Dom</a></li>
+                            <li><a href="events.html">Square Events</a></li>
+                            <li><a href="touch.html">Square Touch</a></li>
+                        </ul>
+		            </li>
+		            <li>
+		                <a href="playground.html">Play Ground</a>
+		            </li>
+		        </ul>
+
+		        <div>
+		            <a href="assests/zips/squareJs-0-1.zip" class="element place-right"><span class="icon-file-zip"></span> Download Zip</a>
+		        </div>
+		    </div>
+		</div>
+
+		<div style="background: url(assests/images/b1.jpg) top left no-repeat; background-size: cover; height: 300px;">
+            <div class="container" style="padding: 50px 20px">
+                <h1 class="fg-white">SquareJS 0.1</h1>
+                <h2 class="fg-white">
+                    SquareJs is a little javascript framework that includes features like <br/>OOP, functional programming, event, animations and lots more.
+                </h2>
+
+                <a href="assests/zips/squareJs-0-1.zip"
+                   class="place-left button bg-green bg-hover-green fg-white fg-hover-white bd-green" style="margin-top: 10px; margin-right: 5px">
+                    <h3 style="margin: 10px 40px">Download <span class="icon-download-2 on-right"></span></h3>
+                </a>
+
+                <a href="https://github.com/aminubakri/SquareJS"
+                   class="place-left button bg-green bg-hover-green fg-white fg-hover-white bd-green" style="margin-top: 10px">
+                    <h3 style="margin: 10px 40px">View on Github <span class="icon-github-2 on-right"></span></h3>
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="grid fluid">
+                <div class="row">
+                    <div class="span4 bg-amber padding20 text-center">
+                        <h2 class="fg-white">easy to use</h2>
+                    </div>
+                    <div class="span4 bg-green padding20 text-center">
+                        <h2 class="fg-white">light weight</h2>
+                    </div>
+                    <div class="span4 bg-red padding20 text-center">
+                        <h2 class="fg-white">mit license</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="grid no-margin">
+                <div class="row">
+                    <div class="span4 no-tablet-portrait no-phone">
+                        <div class="notice marker-on-right bg-lighterBlue padding20 text-center" style="height: 130px">
+                            <h2 class="fg-white" style="font-size: 80px; line-height: 50px; margin-bottom: 10px">3</h2>
+                            <p class="subheader-secondary fg-white">simple steps to squareJs</p>
+                        </div>
+                    </div>
+                    <div class="span8">
+                        <div class="notice marker-on-bottom no-desktop padding10 bg-lighterBlue text-center ">
+                            <p class="subheader-secondary fg-white no-margin">3 simple steps to squareJs</p>
+                        </div>
+                        <ol class="styled">
+                            <li style="width: 90%">Create page with <strong>HTML5 DOCTYPE</strong> (not required).</li>
+                            <li style="width: 90%">Include <strong>squarejs.min.js</strong></li>
+                            <li style="width: 90%">Use markup, as described in the documentation page of this site</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+<pre class="prettyprint linenums" style="margin-top: 10px;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+	    &lt;script src="path/to/file/squarejs.min.js"&gt;&lt;/script&gt;
+	    &lt;script&gt;
+	    	squareJs.events.ready(function () {
+	    		$square('#example').html("Welcome to SquareJs!");
+	    	});
+	    &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    	... page ...
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        </div>
+
+        <div class="container tertiary-text bg-dark fg-white" style="padding: 10px; min-width: 100%">
+            2014, SquareJs &copy; by  <a href="mailto:aminuibakori@live.com" class="fg-yellow">the folks at Friendstie.</a> Proudly powered by <a href="http://www.friendstie.com">Friendstie</a>.
+        </div>
+	</body>
+</html>
